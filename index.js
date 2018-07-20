@@ -61,16 +61,16 @@ prog
 
 // #5 Random String
 
-.command('random string', 'generate random string')
-.argument('input', "generate random")
+.command('random', 'generate random string')
+.option('--length', 'How much app to deploy', prog.INT, 1)
 .action((args, options, logger) => {
-    // let result = args.input
-    // let charSet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    // for (var i = 0; i < result; i++) {
-    //     var randomPoz = Math.floor(Math.random() * charSet.length);
-    //     return randomPoz
-    // }
-    // return result;
+    let random = '';
+    let charSet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+    for (let i = 32; i > 0; --i) {
+        random += charSet[Math.round(Math.random()* (charSet.length-1))]
+    }
+    console.log(random)
 })
 
 
